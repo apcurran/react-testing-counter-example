@@ -6,11 +6,22 @@ function Counter() {
     const [counterValue, setCounterValue] = useState(0);
     const [inputValue, setInputValue] = useState(1);
 
+    function addToCounter() {
+        setCounterValue((prevVal) => prevVal + inputValue);
+    }
+
+    function subtractFromCounter() {
+        setCounterValue((prevVal) => prevVal - inputValue);
+    }
+
     return (
         <div>
             <h1 data-testid="header">My Counter</h1>
             <h2 data-testid="counter">{counterValue}</h2>
-            <button data-testid="subtract-btn">-</button>
+            <button
+                onClick={subtractFromCounter}
+                data-testid="subtract-btn"
+            >-</button>
             <input
                 onChange={(event) => setInputValue(event.target.value)}
                 data-testid="input"
@@ -20,7 +31,10 @@ function Counter() {
                 name="input"
                 id="input"
             />
-            <button data-testid="add-btn">+</button>
+            <button
+                onClick={addToCounter}
+                data-testid="add-btn"
+            >+</button>
         </div>
     );
 }
