@@ -12,6 +12,7 @@ function Counter() {
             <h2 data-testid="counter">{counterValue}</h2>
             <button data-testid="subtract-btn">-</button>
             <input
+                onChange={(event) => setInputValue(event.target.value)}
                 data-testid="input"
                 className="input"
                 value={inputValue}

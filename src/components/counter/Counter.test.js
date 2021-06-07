@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import Counter from "./Counter";
@@ -37,4 +37,20 @@ test("subtract button renders with a -", () => {
     const subtractBtnElem = getByTestId("subtract-btn");
 
     expect(subtractBtnElem.textContent).toBe("-");
+});
+
+test("changing value of input works correctly", () => {
+    const { getByTestId } = render(<Counter />);
+    const inputElem = getByTestId("input");
+
+    expect(inputElem.value).toBe("1");
+
+    // Simulate changing the value of the input to "5"
+    fireEvent.change(inputElem, {
+        target: {
+            value: "5"
+        }
+    });
+
+    expect(inputElem.value).toBe("5");
 });
