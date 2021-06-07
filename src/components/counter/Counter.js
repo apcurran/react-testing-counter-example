@@ -23,7 +23,7 @@ function Counter() {
                 data-testid="subtract-btn"
             >-</button>
             <input
-                onChange={(event) => setInputValue(event.target.value)}
+                onChange={(event) => setInputValue(Number(event.target.value))}
                 data-testid="input"
                 className="input"
                 value={inputValue}
