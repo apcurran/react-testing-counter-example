@@ -1,3 +1,11 @@
 .input {
     text-align: center;
 }
+
+.clr--green {
+    color: green;
+}
+
+.clr--red {
+    color: red;
+}

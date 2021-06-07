@@ -6,6 +6,10 @@ function Counter() {
     const [counterValue, setCounterValue] = useState(0);
     const [inputValue, setInputValue] = useState(1);
 
+    // Clr Change Classes
+    const clrChangeGreen = `${counterValue >= 100 ? "clr--green" : ""}`;
+    const clrChangeRed = `${counterValue <= -100 ? "clr--red" : ""}`;
+
     function addToCounter() {
         setCounterValue((prevVal) => prevVal + inputValue);
     }
@@ -17,7 +21,10 @@ function Counter() {
     return (
         <div>
             <h1 data-testid="header">My Counter</h1>
-            <h2 data-testid="counter">{counterValue}</h2>
+            <h2
+                className={`${clrChangeGreen}${clrChangeRed}`}
+                data-testid="counter"
+            >{counterValue}</h2>
             <button
                 onClick={subtractFromCounter}
                 data-testid="subtract-btn"
