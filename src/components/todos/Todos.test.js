@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Todos from "./Todos";
 
 describe("Todos component", () => {
+
     test("loads todos properly if request succeeds", async () => {
         // Mock the browser's Fetch API with a fake func
         window.fetch = jest.fn();
@@ -19,4 +20,5 @@ describe("Todos component", () => {
         const todoItems = await screen.findAllByRole("article");
         expect(todoItems).not.toHaveLength(0);
     });
+    
 });
