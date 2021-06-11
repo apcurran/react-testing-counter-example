@@ -19,11 +19,12 @@ function Counter() {
     }
 
     return (
-        <div>
+        <div className="counter-section">
             <h1 data-testid="header">My Counter</h1>
             <h2
                 className={`${clrChangeGreen}${clrChangeRed}`}
                 data-testid="counter"
+                data-cy="counter"
             >{counterValue}</h2>
             <button
                 onClick={subtractFromCounter}
