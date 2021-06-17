@@ -24,4 +24,14 @@ describe("counter component", () => {
 
         cy.get("[data-cy='counter']").should("have.class", "clr--green");
     });
+
+    it("should turn counter text red when the count is less than or equal to -100", () => {
+        const subtractBtn = cy.contains("button", "-");
+
+        for (let i = 0; i < 100; i++) {
+            subtractBtn.click();
+        }
+
+        cy.get("[data-cy='counter']").should("have.class", "clr--red");
+    });
 });
