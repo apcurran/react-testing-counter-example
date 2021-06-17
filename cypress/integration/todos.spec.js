@@ -14,7 +14,7 @@ describe("todos component", () => {
         cy.get("article h2").contains("delectus");
     });
 
-    // Mocked HTTP request
+    // Alternative mocked HTTP request
     it("should mock HTTP req and detect 5 todos on page load", () => {
         const fakeJSONData = [
             {
@@ -50,7 +50,7 @@ describe("todos component", () => {
         ];
 
         cy.intercept("GET", "https://jsonplaceholder.typicode.com/todos", fakeJSONData);
-        
+
         cy.get("article h2").contains("delectus aut autem");
         cy.get("article h2").contains("quis ut nam facilis et officia qui");
         cy.get("article h2").contains("fugiat veniam minus");
