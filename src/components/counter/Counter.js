@@ -32,6 +32,7 @@ function Counter() {
             >-</button>
             <input
                 onChange={(event) => setInputValue(Number(event.target.value))}
+                data-cy="input"
                 data-testid="input"
                 className="input"
                 value={inputValue}
